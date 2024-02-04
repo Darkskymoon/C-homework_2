@@ -42,14 +42,10 @@ public class StudentManager extends Student{
 				// Create Student object using info
 				Student newStudent = new Student(id, name, grade);
 				
-				// Copy array and increase size so newStudent can fit
+				// Copy array "student" and increase size so newStudent can fit
 				int N = student.length;
 			    student = Arrays.copyOf(student, N + 1);
 			    student[N] = newStudent;
-			}
-			
-			for (Student stud : student) {
-				System.out.println(stud);
 			}
 			
 			// Return true to indicate file was successfully found and read
@@ -57,8 +53,8 @@ public class StudentManager extends Student{
 		}
 		catch (FileNotFoundException e)
 		{
-			// If the file could not be found, we alert user with print statement and return false
-			System.out.println("File not found.");
+			// If the file could not be found or reading/initialization failed, we alert user with print statement and return false
+			System.out.println("File not found or Error occured in the file reading/initialization process");
 			return false;
 		}
 	}
