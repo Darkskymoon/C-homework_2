@@ -1,10 +1,16 @@
 package groupc.hw2.student;
+
+import java.util.Arrays;
+import java.util.Scanner;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 /*
  * Class: StudentManager
  * This class extends the Student class and handles all of the main logic of the program
  */
 public class StudentManager extends Student{
-	Student[] student;
+	Student[] student = new Student[0];
 	
 	
 	/*
@@ -13,10 +19,48 @@ public class StudentManager extends Student{
 	 * @Param fileName	The file that is to be read from that contains student data
 	 * @author
 	 * @return indication that reading/initialization of a file was successful or not. True=successful. False=Failed
+	 * 
+	 * Note: Used Code from L2 slides for inspiration on how to write file scanning logic
 	 */
 	public boolean readFromFile(String fileName)
 	{
-		return false;
+		Scanner fileScanner = null ; // initializes fileScanner to null
+		try
+		{
+			// Attempt to open the file
+			fileScanner = new Scanner(new FileInputStream("./src/groupc/hw2/files/" + fileName));
+			
+			// While there is a student to read in...
+			while(fileScanner.hasNextLine()) {
+				
+				// Get each part of student's info
+				int id = fileScanner.nextInt();
+				String name = fileScanner.next() + " " + fileScanner.next();
+				double grade = fileScanner.nextDouble();
+				fileScanner.nextLine();
+				
+				// Create Student object using info
+				Student newStudent = new Student(id, name, grade);
+				
+				// Copy array and increase size so newStudent can fit
+				int N = student.length;
+			    student = Arrays.copyOf(student, N + 1);
+			    student[N] = newStudent;
+			}
+			
+			for (Student stud : student) {
+				System.out.println(stud);
+			}
+			
+			// Return true to indicate file was successfully found and read
+			return true;
+		}
+		catch (FileNotFoundException e)
+		{
+			// If the file could not be found, we alert user with print statement and return false
+			System.out.println("File not found.");
+			return false;
+		}
 	}
 	
 	/*
