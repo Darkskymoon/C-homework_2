@@ -1,3 +1,6 @@
+# Bin directories
+[bB]in/
+
 # Compiled class file
 *.class
 
