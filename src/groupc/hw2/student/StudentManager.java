@@ -76,6 +76,13 @@ public class StudentManager extends Student{
 	 * @return returns false if no student was found. returns true if a student was found
 	 */
 	public boolean searchStudentById(int id) {
+		//Using a forEach loop to iterate through student array 
+		for (Student student : student) {
+			//When ID is matched with an element in the array, return the data
+			if (id == student.getId()) {
+				System.out.println(student.toString());
+			}
+		}
 		return false;
 	}
 	
