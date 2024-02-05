@@ -76,13 +76,20 @@ public class StudentManager extends Student{
 	 * @return returns false if no student was found. returns true if a student was found
 	 */
 	public boolean searchStudentById(int id) {
+		//create a temporary student object to compare with objects in array
+		Student referenceStudent = new Student();
+		//assign id to temporary student
+		referenceStudent.setId(id);
 		//Using a forEach loop to iterate through student array 
 		for (Student student : student) {
 			//When ID is matched with an element in the array, return the data
-			if (id == student.getId()) {
+			if (student.equals(referenceStudent)) {
 				System.out.println(student.toString());
+				//returns true if sound, assume that ID for each student is unique
+				return true;
 			}
 		}
+		System.out.println("Student matching ID: " + id + " not found");
 		return false;
 	}
 	
