@@ -51,6 +51,12 @@ public class Student {
 		return "Student [id=" + id + ", name=" + name + ", grade=" + grade + "]";
 	}
 	
-	
-	
+	@Override
+	public boolean equals(Object obj) {
+		Student student = ((Student)obj);
+		if (this.id == student.getId()) {
+			return true;
+		}
+		return false;
+	}
 }
