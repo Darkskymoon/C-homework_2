@@ -13,7 +13,7 @@ public class Main {
 		boolean fileReadStatus = studentManager.readFromFile("studentData.txt");
 
 		// Display all students.
-		// studentManager.displayStudents();
+		studentManager.displayStudents();
 
 		// Search for a student by ID.
 		// boolean studentFound = studentManager.searchStudentById(101);
@@ -22,7 +22,7 @@ public class Main {
 		// boolean studentGradeUpdateStatus = studentManager.updateStudentGradeById(102, 95);
 
 		// Display all students after the update.
-		// studentManager.displayStudents();
+		studentManager.displayStudents();
 
 	}
 
