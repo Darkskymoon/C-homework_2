@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
  * This class extends the Student class and handles all of the main logic of the program
  */
 public class StudentManager extends Student{
-	Student[] student = new Student[0];
+	Student[] students = new Student[0];
 	
 	
 	/*
@@ -43,9 +43,9 @@ public class StudentManager extends Student{
 				Student newStudent = new Student(id, name, grade);
 				
 				// Copy array "student" and increase size so newStudent can fit
-				int N = student.length;
-			    student = Arrays.copyOf(student, N + 1);
-			    student[N] = newStudent;
+				int N = students.length;
+			    students = Arrays.copyOf(students, N + 1);
+			    students[N] = newStudent;
 			}
 			
 			// Return true to indicate file was successfully found and read
@@ -81,7 +81,7 @@ public class StudentManager extends Student{
 		//assign id to temporary student
 		referenceStudent.setId(id);
 		//Using a forEach loop to iterate through student array 
-		for (Student student : student) {
+		for (Student student : students) {
 			//When ID is matched with an element in the array, return the data
 			if (student.equals(referenceStudent)) {
 				System.out.println(student.toString());
