@@ -66,7 +66,17 @@ public class StudentManager extends Student{
 	 * @author
 	 */
 	public void displayStudents() {
+		boolean allNulls = true;
+		for (Student student : students) {
+			if (student != null) {
+				allNulls = false;
+				System.out.println(student);
+			}
+		}
 		
+		if (allNulls) {
+			System.out.println("No students in array");
+		}
 	}
 	
 	/*
