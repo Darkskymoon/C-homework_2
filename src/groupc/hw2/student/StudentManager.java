@@ -112,8 +112,34 @@ public class StudentManager extends Student{
 	 * @return	returns false if a student wasn't found. Returns true if the update was successful
 	 */
 	public boolean updateStudentGradeById(int id, double grade) {
-		//Tests to see if the student of that ID number exists using the searchStudentGradesByID
+		/*
+		 * Since searchStudentByID() does not return the object and instead returns a boolean, 
+		 * this method only uses searchStudentById to verify that the student exists, not to locate that student 
+		 * to change their grade.
+		 * Hence, this function re-implements most of the searchStudentById method.
+		 */
+		
+		//Tests to see if the student of that ID number exists using the searchStudentGradesByID.
+		//Once the student has been verified to exist, their grade can be updated
 		if(searchStudentById(id)==true ) { 
+
+			//creates a temporary student with the ID passed in so comparing students can utilize the equals() method
+			Student tempStudent = new Student();
+			tempStudent.setId(id);
+			
+
+			//The following code is similar to the searchStudentbyId() method, in its search for a student
+			//with a particular ID. BUT instead it will change the student's grade when it finds the student.
+			
+			//Go through the entire array of students to find one that matches the Id passed in
+			for(Student student : students) {
+				//utilize the equals function, which compares the ID's between two students. 
+				//tempStudent is a student that has the same ID as the real student 
+				if(student.equals(tempStudent)){
+					//changes the grade of the student with the matching ID.
+					student.setGrade(grade);
+				}
+			}
 			return true;
 			
 		}
