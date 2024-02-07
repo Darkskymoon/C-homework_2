@@ -111,7 +111,13 @@ public class StudentManager extends Student{
 	 * @param grade	the updated grade value (as a double value) that should replace the existing grade 
 	 * @return	returns false if a student wasn't found. Returns true if the update was successful
 	 */
-	public boolean updateStudentGradeByID(int id, double grade) {
+	public boolean updateStudentGradeById(int id, double grade) {
+		//Tests to see if the student of that ID number exists using the searchStudentGradesByID
+		if(searchStudentById(id)==true ) { 
+			return true;
+			
+		}
+		
 		return false;
 	}
 
