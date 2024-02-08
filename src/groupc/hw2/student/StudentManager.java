@@ -98,7 +98,10 @@ public class StudentManager extends Student{
 				return true;
 			}
 		}
+		System.out.println("");
+		System.out.println("\u001B[31m" + "idNotFoundException (4001)" + "\u001B[37m");
 		System.out.println("Student matching ID: " + id + " not found");
+		System.out.println("");
 		return false;
 	}
 	
