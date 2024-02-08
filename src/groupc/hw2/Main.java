@@ -5,6 +5,8 @@ import groupc.hw2.student.StudentManager;
 public class Main {
 
 	public static void main(String[] args) {
+		
+		
 
 		// Instantiate StudentManager, perform operations based on the requirements.
 		StudentManager studentManager = new StudentManager();
@@ -12,21 +14,30 @@ public class Main {
 		// Instantiate StudentManager2, to perform operations to test edge cases.
 		StudentManager studentManager2 = new StudentManager();
 		
-		// Read student data from a file and initialize Student objects. -successfully 
+		
+		// Attempt to read student data from a file and initialize Student objects. - success
 		boolean fileReadStatus = studentManager.readFromFile("studentData.txt");
 		if(fileReadStatus == true) {
-			System.out.println("FileReadStatus Successful");
+			System.out.println("FileReadStatus Given Valid Path (\"studentData.txt\"): Successful");
+		} else {
+			System.out.println("FileReadStatus Given Valid Path (\"studentData.txt\"): Failed");
 		}
-		//Read student data from a file and initialize Student objects, but no file found - failure
+		
+		// Attempt to read student data from a file and initialize Student objects, but no file found - failure
 		boolean fileReadStatus2 = studentManager2.readFromFile(null); 
+		if(fileReadStatus2 == true) {
+			System.out.println("FileReadStatus Given Invalid Path (null): Successful");
+		} else {
+			System.out.println("FileReadStatus Given Invalid Path (null): Failed");
+		}
 		
 		
-		// Display all students.
+		// Display all students  - successful case
 		System.out.println("\nDisplay the Students on the successfully initialized student object");
 		studentManager.displayStudents();
-		System.out.println(" ");
 		
-		System.out.println("Display Students on the unsuccessfully initialzed student object");
+		// Display all students  - unsuccessful case
+		System.out.println("\nDisplay Students on the unsuccessfully initialzed student object");
 		studentManager2.displayStudents();
 
 		
@@ -34,13 +45,13 @@ public class Main {
 		System.out.println("\nSearch for Student - successful case:");
 		boolean studentFound = studentManager.searchStudentById(101);
 		
-		System.out.println("\nTesting updateStudentGradeById() when there is no student in the array");
-		// search for a student by ID. - unsuccessful case 
+		// Search for a student by ID. - unsuccessful case 
+		System.out.println("\nSearch for Student - unsuccessful case:");
 		boolean StudentFound2 = studentManager2.searchStudentById(102);
-		System.out.println("");
+		
 		
 		// Update the grade of a student by ID. -successfully
-		
+		System.out.println("\nUpdating Grade - successful case");
 		boolean studentGradeUpdateStatus = studentManager.updateStudentGradeById(102, 95);
 		
 		// Display all students after the update.

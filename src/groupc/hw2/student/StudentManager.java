@@ -53,8 +53,7 @@ public class StudentManager extends Student{
 		}
 		catch (FileNotFoundException e)
 		{
-			// If the file could not be found or reading/initialization failed, we alert user with print statement and return false
-			System.out.println("File not found or Error occured in the file reading/initialization process");
+			// If the file could not be found or reading/initialization failed, we return false
 			return false;
 		}
 	}
