@@ -9,20 +9,59 @@ public class Main {
 		// Instantiate StudentManager, perform operations based on the requirements.
 		StudentManager studentManager = new StudentManager();
 		
-		// Read student data from a file and initialize Student objects.
+		// Instantiate StudentManager2, to perform operations to test edge cases.
+		StudentManager studentManager2 = new StudentManager();
+		
+		// Read student data from a file and initialize Student objects. -successfully 
 		boolean fileReadStatus = studentManager.readFromFile("studentData.txt");
-
+		if(fileReadStatus == true) {
+			System.out.println("FileReadStatus Successful");
+		}
+		//Read student data from a file and initialize Student objects, but no file found - failure
+		boolean fileReadStatus2 = studentManager2.readFromFile(null); 
+		
+		
 		// Display all students.
+		System.out.println("\nDisplay the Students on the successfully initialized student object");
 		studentManager.displayStudents();
+		System.out.println(" ");
+		
+		System.out.println("Display Students on the unsuccessfully initialzed student object");
+		studentManager2.displayStudents();
 
-		// Search for a student by ID.
+		
+		// Search for a student by ID. - successful case
+		System.out.println("\nSearch for Student - successful case:");
 		boolean studentFound = studentManager.searchStudentById(101);
-
-		// Update the grade of a student by ID.
+		
+		System.out.println("\nTesting updateStudentGradeById() when there is no student in the array");
+		// search for a student by ID. - unsuccessful case 
+		boolean StudentFound2 = studentManager2.searchStudentById(102);
+		System.out.println("");
+		
+		// Update the grade of a student by ID. -successfully
+		
 		boolean studentGradeUpdateStatus = studentManager.updateStudentGradeById(102, 95);
-		System.out.println("StudentGradeUpdateStatus: "+ studentGradeUpdateStatus);
+		
 		// Display all students after the update.
+		System.out.println("\nDisplay all students after the successful update");
 		studentManager.displayStudents();
+		
+		//update the grade of a non-existent student in non-existent array
+		System.out.println("\nTesting a non-existent array of students for update");
+		studentManager2.displayStudents();
+		boolean studentGradeUpdateStatus2 = studentManager2.updateStudentGradeById(104, 92);
+		if(studentGradeUpdateStatus2 == false) {
+			System.out.println("No student to update (displaying in main)");
+		}
+		studentManager2.displayStudents();
+		
+		//update the grade of a non-existent student in an existing array
+		System.out.println("\nTesting an existing array of students for update, where the student doesn't exist");
+		studentManager.displayStudents();
+		studentGradeUpdateStatus = studentManager.updateStudentGradeById(112,80);
+		studentManager.displayStudents();
+		
 
 	}
 
