@@ -43,16 +43,16 @@ public class Main {
 		
 		// Search for a student by ID. - successful case
 		System.out.println("\nSearch for Student - successful case:");
-		boolean studentFound = studentManager.searchStudentById(101);
+		System.out.println(studentManager.searchStudentById(101));
 		
 		// Search for a student by ID. - unsuccessful case 
 		System.out.println("\nSearch for Student - unsuccessful case:");
-		boolean StudentFound2 = studentManager2.searchStudentById(102);
+		studentManager2.searchStudentById(102);
 		
 		
 		// Update the grade of a student by ID. -successfully
 		System.out.println("\nUpdating Grade - successful case");
-		boolean studentGradeUpdateStatus = studentManager.updateStudentGradeById(102, 95);
+		studentManager.updateStudentGradeById(102, 95);
 		
 		// Display all students after the update.
 		System.out.println("\nDisplay all students after the successful update");
@@ -70,7 +70,7 @@ public class Main {
 		//update the grade of a non-existent student in an existing array
 		System.out.println("\nTesting an existing array of students for update, where the student doesn't exist");
 		studentManager.displayStudents();
-		studentGradeUpdateStatus = studentManager.updateStudentGradeById(112,80);
+		studentManager.updateStudentGradeById(112,80);
 		studentManager.displayStudents();
 		
 
