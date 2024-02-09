@@ -42,16 +42,16 @@ public class Main {
 
 		
 		// Search for a student by ID. - successful case
-		System.out.println("\nSearch for Student - successful case:");
+		System.out.println("\nSearch for Student with ID 101 - successful case:");
 		System.out.println(studentManager.searchStudentById(101));
 		
 		// Search for a student by ID. - unsuccessful case 
-		System.out.println("\nSearch for Student - unsuccessful case:");
+		System.out.println("\nSearch for Student 102 - unsuccessful case:");
 		studentManager2.searchStudentById(102);
 		
 		
 		// Update the grade of a student by ID. -successfully
-		System.out.println("\nUpdating Grade - successful case");
+		System.out.println("\nUpdating Grade for ID 102 to 95 - successful case");
 		studentManager.updateStudentGradeById(102, 95);
 		
 		// Display all students after the update.
