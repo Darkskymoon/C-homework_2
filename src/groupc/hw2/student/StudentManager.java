@@ -65,7 +65,10 @@ public class StudentManager extends Student{
 	 * @author
 	 */
 	public void displayStudents() {
+		// Initialize a flag meaning that there are no students in the manager.
 		boolean allNulls = true;
+
+		// Iterate through all of the indexes in the manager and if any of them are not null print them and set the allNull flag to false.
 		for (Student student : students) {
 			if (student != null) {
 				allNulls = false;
@@ -73,6 +76,7 @@ public class StudentManager extends Student{
 			}
 		}
 		
+		// If the array was all Null or had a size of 0 then display that the manager contains no students
 		if (allNulls) {
 			System.out.println("No students in array");
 		}
